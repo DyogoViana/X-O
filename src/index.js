@@ -30,6 +30,12 @@ class Board extends React.Component {
     };
   }
 
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({ squares: squares });
+  }
+
   renderSquare(i) {
     return (
       <Square 
@@ -87,3 +93,15 @@ ReactDOM.render(
   <Game />,
   document.getElementById('root')
 );
+
+
+
+/*
+#############################################
+##############  Anotações ###################
+#############################################
+
+
+- .slice() = cria uma cópia do array de quadrados.
+
+*/
