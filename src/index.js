@@ -1,32 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-class Square extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: null,
-    };
-  }
 
-  render() {
-    return (
-      // Botão
-      <button 
-        className="square" 
-        onClick={() => this.setState({ value: 'X' })}
-      >
-        {this.state.value}
-      </button>
-    );
-  }
+
+// Square
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
+
+
+// Board
 class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      xIsNext: true,
     };
   }
 
@@ -71,6 +65,8 @@ class Board extends React.Component {
   }
 }
 
+
+// Game
 class Game extends React.Component {
   render() {
     return (
